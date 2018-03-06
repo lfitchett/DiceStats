@@ -14,7 +14,20 @@
   </div>
 </div>
 
-<button (click)="diceRows.push('d6')">+</button><button (click)="diceRows.pop()">-</button>
-<app-dice-row *ngFor="let s of diceRows;" [diceString]="s">Loading</app-dice-row>
+{{selected}}
+<button (click)="saveDice()">Save</button>
+<button (click)="addRow()">+</button>
+<button (click)="diceRows.pop()">-</button>
+<div *ngFor="let row of diceRows; index as i;" style="padding-top: 10px;">
+  <div style="border:1px solid black;" (click)="selected = i;">
+    {{i}}
+    <input type="text" [(ngModel)]="row.diceString" (blur)="row.updateDie()" />
+    <br />{{row.diceStringShow}} Average: {{row.dice.stats.mean}} Std: {{row.dice.stats.std}} Max: {{row.dice.stats.max}} Min:
+    {{row.dice.stats.min}}
+    <button (click)="row.logDice()">Log Dice</button>
+  </div>
+</div>
+
+
 
 <br/>

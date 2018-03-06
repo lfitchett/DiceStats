@@ -3,13 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { DiceRowComponent } from './dice-row/dice-row.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DiceRowComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
