@@ -11,7 +11,7 @@ export class AppComponent {
   title = _.range(5).map((i) => i + 1).toString();
 
   diceRows = _.range(5).map((i) => new DiceRow())
-  selectedDiceRow: number;
+  selectedDiceRow: number = 0;
 
   constructor() {
     // this.onDiceChange();

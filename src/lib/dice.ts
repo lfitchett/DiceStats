@@ -90,7 +90,10 @@ export class Dice {
     public print() {
         console.log(this.values)
         console.log(this.stats)
+    }
 
+    public toString(): string {
+        return JSON.stringify(this.values);
     }
 }
 
