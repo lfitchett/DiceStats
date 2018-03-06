@@ -8,12 +8,21 @@ import { Dice } from "../lib/dice"
 })
 export class AppComponent {
   title = 'test';
-  dice = Dice.Parse("d6")
+  diceString = "d6";
+
+  dice = Dice.Parse(this.diceString);
+  diceStringShow = this.diceString;
+
   constructor() {
     console.log(this.dice)
   }
 
-  public updateDie(s: string) {
-    this.dice = Dice.Parse(s);
+  public updateDie() {
+    this.dice = Dice.Parse(this.diceString);
+    this.diceStringShow = this.diceString;
+  }
+
+  public logDice() {
+    console.log(this.dice);
   }
 }

@@ -166,10 +166,9 @@ function parseDice(s: string): Dice {
     s = s.replace(/\s{2,}/g, ' ');
     s = s.trim();
 
-    console.log("s", s)
     let arr: Array<string | Dice> = shuntingYard(s);
 
-    if(arr.length == 1){
+    if (arr.length == 1) {
         return parseNonOperator(arr[0] as string);
     }
 
