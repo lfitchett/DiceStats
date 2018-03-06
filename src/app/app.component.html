@@ -6,14 +6,15 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm">
     test
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm">
     test2
   </div>
 </div>
 
-<app-dice-row *ngFor="let row of diceRows;" class="col-sm-6">Loading</app-dice-row>
+<button (click)="diceRows.push(5)">+</button><button (click)="diceRows.pop()">-</button>
+<app-dice-row *ngFor="let i of diceRows;" class="col-sm-6">Loading</app-dice-row>
 
 <br/>
