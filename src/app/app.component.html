@@ -5,8 +5,6 @@
   </h1>
 </div>
 
-{{diceStringShow}}
-<br /> Average: {{dice.stats.mean}} Std: {{dice.stats.std}} Max: {{dice.stats.max}} Min: {{dice.stats.min}}
-<br /> <input type="text" [(ngModel)]="diceString" (blur)="updateDie()"/>
-<button (click)="logDice()">Log Dice</button>
+<app-dice-row *ngFor="let row of diceRows;" class="col-sm-6">Loading</app-dice-row>
+
 <br/>
