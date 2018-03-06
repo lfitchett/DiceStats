@@ -14,12 +14,12 @@
   </div>
 </div>
 
-{{selected}}
+{{selectedDiceRow}}
 <button (click)="saveDice()">Save</button>
 <button (click)="addRow()">+</button>
 <button (click)="diceRows.pop()">-</button>
 <div *ngFor="let row of diceRows; index as i;" style="padding-top: 10px;">
-  <div style="border:1px solid black;" [style.background-color]="selected == i ? 'lime' : 'white'" (click)="selected = i;">
+  <div style="border:1px solid black;" [style.background-color]="selectedDiceRow == i ? 'lime' : 'white'" (click)="selectedDiceRow = i;">
     {{i}}
     <input type="text" [(ngModel)]="row.diceString" (blur)="row.updateDie()" />
     <br />{{row.diceStringShow}} Average: {{row.dice.stats.mean}} Std: {{row.dice.stats.std}} Max: {{row.dice.stats.max}} Min:
@@ -28,7 +28,7 @@
   </div>
 </div>
 
-{{diceRows[selected].dice.toString()}}
+{{diceRows[selectedDiceRow].dice.toString()}}
 
-<app-stats-chart></app-stats-chart>
+<app-stats-chart [dice]="diceRows[selectedDiceRow].dice"></app-stats-chart>
 <br/>
