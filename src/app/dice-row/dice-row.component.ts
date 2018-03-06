@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from "events"
 import { Dice } from "../../lib/dice"
 
 @Component({
@@ -7,13 +8,16 @@ import { Dice } from "../../lib/dice"
   styleUrls: ['./dice-row.component.css']
 })
 export class DiceRowComponent implements OnInit {
-  diceString = "d6";
+  @Input() diceString: string;
+  // @Output() changedDiceString: EventEmitter<string> = new EventEmitter<string>();
 
-  dice = Dice.Parse(this.diceString);
-  diceStringShow = this.diceString;
+  dice: Dice;
+  diceStringShow: string;
 
   ngOnInit() {
-    console.log(this.dice)
+    this.dice = Dice.Parse(this.diceString)
+    this.diceStringShow = this.diceString;
+    console.log(this.diceString)
   }
 
   public updateDie() {

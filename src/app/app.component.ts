@@ -9,5 +9,5 @@ import * as _ from "lodash";
 export class AppComponent {
   title = _.range(5).map((i) => i + 1).toString();
 
-  diceRows = new Array(5);
+  diceRows = _.range(5).map((i) => "d6")
 }

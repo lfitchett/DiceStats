@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<button (click)="diceRows.push(5)">+</button><button (click)="diceRows.pop()">-</button>
-<app-dice-row *ngFor="let i of diceRows;" class="col-sm-6">Loading</app-dice-row>
+<button (click)="diceRows.push('d6')">+</button><button (click)="diceRows.pop()">-</button>
+<app-dice-row *ngFor="let s of diceRows;" [diceString]="s">Loading</app-dice-row>
 
 <br/>
