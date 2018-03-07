@@ -11,6 +11,8 @@ export class StatsChartComponent implements OnInit {
   private _dice: Dice;
   chart: Chart;
 
+  @Input() name: string;
+
   @Input()
   set dice(d: Dice) {
     this._dice = d;
@@ -30,16 +32,16 @@ export class StatsChartComponent implements OnInit {
   private setChart() {
     this.chart = new Chart({
       chart: {
-        type: 'line'
+        type: 'scatter'
       },
       title: {
-        text: 'Probability'
+        text: `Probability for ${this.name}`
       },
       credits: {
         enabled: false
       },
       series: [{
-        name: 'Line 1',
+        name: this.name,
         data: this.points,
       }]
     });

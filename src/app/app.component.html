@@ -20,15 +20,13 @@
 <button (click)="diceRows.pop()">-</button>
 <div *ngFor="let row of diceRows; index as i;" style="padding-top: 10px;">
   <div style="border:1px solid black;" [style.background-color]="selectedDiceRow == i ? 'lime' : 'white'" (click)="selectedDiceRow = i;">
-    {{i}}
     <input type="text" [(ngModel)]="row.diceString" (blur)="row.updateDie()" />
     <br />{{row.diceStringShow}} Average: {{row.dice.stats.mean}} Std: {{row.dice.stats.std}} Max: {{row.dice.stats.max}} Min:
     {{row.dice.stats.min}}
-    <button (click)="row.logDice()">Log Dice</button>
   </div>
 </div>
 
 {{diceRows[selectedDiceRow].dice.toString()}}
 
-<app-stats-chart [dice]="diceRows[selectedDiceRow].dice"></app-stats-chart>
+<app-stats-chart [dice]="diceRows[selectedDiceRow].dice" [name]=diceRows[selectedDiceRow].diceStringShow></app-stats-chart>
 <br/>
