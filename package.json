@@ -16,10 +16,10 @@
     "url": "https://github.com/lfitchett/DiceStats/issues"
   },
   "homepage": "https://github.com/lfitchett/DiceStats#readme",
-  "dependencies": {
-    "@types/node": "^10.12.18"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/node": "^10.12.18",
+    "tslint": "^5.12.0",
     "typescript": "^3.2.2"
   }
 }
