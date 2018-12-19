@@ -1,20 +1,15 @@
 export class DiceStats {
-    private _max: number = 0;
-    private _min: number = Infinity;
-    private _mean: number = 0;
-    private _std: number = 0;
-
-    public get max() { return this._max }
-    public get min() { return this._min }
-    public get mean() { return this._mean }
-    public get std() { return this._std }
+    public max: number = 0;
+    public min: number = Infinity;
+    public mean: number = 0;
+    public std: number = 0;
 
     constructor(values: Map<number, number>) {
-        this._max = Math.max(...values.keys())
-        this._min = Math.min(...values.keys())
+        this.max = Math.max(...values.keys())
+        this.min = Math.min(...values.keys())
 
-        values.forEach((prob, val) => this._mean += val * prob)
-        values.forEach((prob, val) => this._std += (val - this._mean) * (val - this._mean) * prob)
-        this._std = Math.sqrt(this._std)
+        values.forEach((prob, val) => this.mean += val * prob)
+        values.forEach((prob, val) => this.std += (val - this.mean) * (val - this.mean) * prob)
+        this.std = Math.sqrt(this.std)
     };
 }
