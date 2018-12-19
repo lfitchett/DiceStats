@@ -34,14 +34,15 @@ export class Dice {
     public * roll(n: number = 1) {
         for (let i = 0; i < n; i++) {
             let target = Math.random();
-            let iterator = this.values.entries();
-            let result, prob: number
 
-            while (target > 0) {
-                [result, prob] = iterator.next().value;
+            for (const [result, prob] of this.values) {
                 target -= prob;
-            }
-            yield result;
+
+                if (target < 0) {
+                    yield result;
+                    break;
+                }
+            }           
         }
     }
 
